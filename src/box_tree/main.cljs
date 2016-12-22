@@ -32,7 +32,7 @@
 (defn on-jsload! []
   (js/cancelAnimationFrame @loop-ref)
   (js/requestAnimationFrame render-loop!)
-  (.log js/console "code updated..."))
+  (.log js/console "code updated."))
 
 (set! js/window.onload -main)
 
