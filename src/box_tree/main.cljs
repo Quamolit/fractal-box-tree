@@ -6,11 +6,17 @@
             [box-tree.updater.core :refer [updater-fn]]
             [devtools.core :as devtools]))
 
-(defonce store-ref (atom []))
+(defonce store-ref (atom {:y 0, :x 0}))
 
 (defn dispatch! [op op-data]
   (let [new-tick (get-tick), new-store (updater-fn @store-ref op op-data new-tick)]
     (reset! store-ref new-store)))
+
+(defn handle-move [event]
+  (dispatch!
+   :move
+   {:y (- (.-screenY event) 400 (/ (.-innerHeight js/window) 2)),
+    :x (- (.-screenX event) (/ (.-innerWidth js/window) 2))}))
 
 (defonce states-ref (atom {}))
 
@@ -27,6 +33,7 @@
   (let [target (.querySelector js/document "#app")]
     (configure-canvas target)
     (setup-events target dispatch!)
+    (.addEventListener target "mousemove" handle-move)
     (js/requestAnimationFrame render-loop!)))
 
 (defn on-jsload! []

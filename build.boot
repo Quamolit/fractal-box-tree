@@ -91,7 +91,8 @@
                              :pseudo-names true
                              :static-fns true
                              :parallel-build true
-                             :optimize-constants true})
+                             :optimize-constants true
+                             :source-map true})
     (html-file :data {:build? true})
     (target)))
 
