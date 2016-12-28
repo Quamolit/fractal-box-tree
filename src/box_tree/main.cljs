@@ -15,8 +15,8 @@
 (defn handle-move [event]
   (dispatch!
    :move
-   {:y (- (.-screenY event) 400 (/ (.-innerHeight js/window) 2)),
-    :x (- (.-screenX event) (/ (.-innerWidth js/window) 2))}))
+   {:y (- (.-clientY event) 300 (/ (.-innerHeight js/window) 2)),
+    :x (- (.-clientX event) (/ (.-innerWidth js/window) 2))}))
 
 (defonce states-ref (atom {}))
 

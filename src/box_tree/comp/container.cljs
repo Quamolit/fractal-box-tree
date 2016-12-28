@@ -8,6 +8,6 @@
 (defn render [timestamp store]
   (fn [state mutate! instant tick]
     (comment .log js/console state)
-    (translate {:style {:y 300, :x 0}} (comp-branch 8 (:x store) (:y store)))))
+    (translate {:style {:y 300, :x 0}} (comp-branch 6 (:x store) (:y store)))))
 
 (def comp-container (create-comp :container render))

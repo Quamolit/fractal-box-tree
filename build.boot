@@ -9,7 +9,7 @@
                   [binaryage/devtools        "0.7.2"       :scope "test"]
                   [adzerk/boot-test          "1.1.2"       :scope "test"]
                   [respo                     "0.3.32"      :scope "test"]
-                  [quamolit                  "0.1.4"       :scope "test"]
+                  [quamolit                  "0.1.5"       :scope "test"]
                   [mvc-works/hsl             "0.1.2"]])
 
 (require '[adzerk.boot-cljs   :refer [cljs]]
